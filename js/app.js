@@ -55,28 +55,30 @@ todoList.addEventListener('click', function(e) {
 });
 filterActive.addEventListener('click', function() {
     const activeItems= Array.from(todoList.children).filter(item => !item.classList.contains('completed'));
-    Array.from(todoList.children).forEach(item => {
+      for (const item of todoList.children) {
         if (!activeItems.includes(item)) {
-            item.style.display='none';
+            item.style.display = 'none';
+        } else {
+            item.style.display = '';
         }
-        else {
-            item.style.display='';
-        }
+     }
     });
-});
+
 filterDone.addEventListener('click', function() {
     const doneItems= Array.from(todoList.children).filter(item => item.classList.contains('completed'));
-    Array.from(todoList.children).forEach(item => {
+    for (const item of todoList.children) {
         if (!doneItems.includes(item)) {
-            item.style.display='none';
+            item.style.display = 'none';
+        } else {
+            item.style.display = '';
         }
-        else {
-            item.style.display='';
-        }
-  });
+    }
 });
 filterAll.addEventListener('click', function() {
     Array.from(todoList.children).forEach(item => item.style.display='');
+    for (const item of todoList.children) {
+        item.style.display = '';
+    }
 
 });
 })();
